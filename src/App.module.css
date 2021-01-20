@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.mainRow {
+  height: 100%;
+}
+
+.listContainer {
+  border: 2px black solid;
+}
+
+.leftBar {
+  background-color: aqua;
+  height: 100%;
+}
+
+.searchRow {
+  height: 20%;
+}
+
+.searhBar {
+  background-color: burlywood;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.listRow {
+  height: 80%;
+  overflow: scroll;
+}
+
+.ownRepo {
+  background-color:coral;
+  height: 100%;
+  overflow: scroll;
+}
+
+.starredRepo {
+  background-color: darkgray;
+}
