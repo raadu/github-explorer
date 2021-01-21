@@ -8,7 +8,7 @@
 }
 
 .leftBar {
-  background-color: aqua;
+  background-color:  #d6eaf8;
   height: 100%;
 }
 
@@ -33,14 +33,12 @@
 }
 
 .ownRepo {
-  /* background-color:coral; */
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .starredRepo {
-  /* background-color: darkgray; */
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;

@@ -7,7 +7,11 @@ const SingleRepo = ({ repo, key }) => {
       <Card
         size="small"
         title={
-          <a href={repo.html_url} target="_blank">
+          <a 
+            href={repo.html_url} 
+            target="_blank"
+            rel="noreferrer"
+          >
             {repo.full_name}
           </a>
         }
