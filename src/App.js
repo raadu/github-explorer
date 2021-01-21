@@ -10,6 +10,7 @@ function App() {
   const [userName, setUserName] = useState("");
   const [userRepo, setUserRepo] = useState([]);
   const [userStars, setUserStars] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   console.log("userRepo", userRepo);
   console.log("userStars", userStars);
@@ -17,17 +18,20 @@ function App() {
 
   useEffect(() => {
     if (userName !== "") {
+      setLoading(true);
       fetch(`https://api.github.com/users/${userName}/repos`)
         .then((res) => res.json())
         .then((data) => {
           setUserRepo(data);
-        });
+        })
+        .then(() => setLoading(false));
 
       fetch(`https://api.github.com/users/${userName}/starred`)
         .then((res) => res.json())
         .then((data) => {
           setUserStars(data);
-        });
+        })
+        .then(() => setLoading(false));
     }
   }, [userName]);
 
@@ -43,13 +47,13 @@ function App() {
         <Col span={6} className={AppStyle.leftBar}>
           Past Searches
         </Col>
-        <Col span={18}>
+        <Col span={18} className={AppStyle.rightColumn}>
           <Row className={AppStyle.searchRow}>
             <Col span={24} className={AppStyle.searhBar}>
               <Title level={5}>Github Explorer</Title>
               <Input
                 type="text"
-                placeholder="Type Username"
+                placeholder="Search Github Username"
                 onKeyDown={searchEnter}
                 style={{ width: 200 }}
               />
@@ -58,21 +62,23 @@ function App() {
           <Row className={AppStyle.listRow}>
             <Col span={12} className={AppStyle.ownRepo}>
               <Title level={5}>Own Repositories</Title>
-              <div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
-              <div>test</div><div>test</div><div>test</div>
+              {userRepo.length !== 0
+                ? userRepo.map((repo) => {
+                    return <SingleRepo repo={repo} />;
+                  })
+                : loading
+                ? <div>Loading...</div> 
+                : null}
             </Col>
             <Col span={12} className={AppStyle.starredRepo}>
               <Title level={5}>Repositories Starred</Title>
+              {userStars.length !== 0
+                ? userStars.map((repo) => {
+                    return <SingleRepo repo={repo} />;
+                  })
+                : loading 
+                ? <div>Loading...</div> 
+                : null}
             </Col>
           </Row>
         </Col>

@@ -7,12 +7,12 @@
   height: 100%;
 }
 
-.listContainer {
-  border: 2px black solid;
-}
-
 .leftBar {
   background-color: aqua;
+  height: 100%;
+}
+
+.rightColumn {
   height: 100%;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .searhBar {
-  background-color: burlywood;
+  background-color: #d0d3d4;
   display: flex !important;
   justify-content: center;
   align-items: center;
@@ -30,15 +30,18 @@
 
 .listRow {
   height: 80%;
-  overflow: scroll;
 }
 
 .ownRepo {
-  background-color:coral;
+  /* background-color:coral; */
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .starredRepo {
-  background-color: darkgray;
+  /* background-color: darkgray; */
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

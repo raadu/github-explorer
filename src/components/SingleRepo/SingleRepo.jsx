@@ -1,15 +1,19 @@
 import { Fragment } from "react";
 import { Card } from "antd";
 
-const SingleRepo = ({ repo }) => {
+const SingleRepo = ({ repo, key }) => {
   return (
     <Fragment>
-      <Card 
-        size="small" 
-        title={repo.full_name}
-    >
-      <p>{repo.description}</p>
-    </Card>
+      <Card
+        size="small"
+        title={
+          <a href={repo.html_url} target="_blank">
+            {repo.full_name}
+          </a>
+        }
+      >
+        <p>{repo.description}</p>
+      </Card>
     </Fragment>
   );
 };
