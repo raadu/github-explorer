@@ -6,10 +6,10 @@ import AppStyle from "./App.module.css";
 import SingleRepo from "./components/SingleRepo/SingleRepo";
 import SearchItem from "./components/SearchItem/SearchItem";
 import { 
-  Row, 
-  Col, 
-  Input, 
-  Typography 
+  Row,
+  Col,
+  Input,
+  Typography
 } from "antd";
 import "antd/dist/antd.css";
 
