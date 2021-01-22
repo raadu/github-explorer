@@ -26,7 +26,7 @@ function App() {
 
   // Fetch past searches data from API
   useEffect(() => {
-    fetch(`http://localhost:3000/git-search/search`)
+    fetch(`https://github-explorer-backend123.herokuapp.com/git-search/search`)
       .then((res) => res.json())
       .then((data) => {
         setPastSearches(data);
@@ -57,7 +57,7 @@ function App() {
 
   // Add search text to DB using API
   const addSearchToDB = (value) => {
-    fetch("http://localhost:3000/git-search/create", {
+    fetch("https://github-explorer-backend123.herokuapp.com/git-search/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: value }),
